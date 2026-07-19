@@ -1,6 +1,6 @@
 console.log('Jeffrey in the House...');
 function start_app(){
-  const data=fetchData('enadsys.json');
+  const data=fetchData('./enadsys.json');
 }
 
 async function fetchData(vfile){
