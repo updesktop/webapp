@@ -13,6 +13,7 @@ async function fetchData(vfile){
     
     const data = await response.json();
     CURR_CLIENTNAME=data.clientname;
+    alert(CURR_CLIENTNAME);
     CURR_SITE=data.site;
     CURR_TELNO=data.telno;
     CURR_COLOR=data.app_color;
