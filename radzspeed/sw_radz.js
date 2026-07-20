@@ -7,34 +7,37 @@ const ASSETS = [
   './logo.png',
   './qrcode.png',
   './mainpic.png',
+  './favicon/favicon.ico',
+  './favicon/favicon-16x16.png',
+  './favicon/favicon-32x32.png',
+  './favicon/favicon-96x96.png',
+  './favicon/favicon-192x192.png',
   '../zzz_main/app.js','../zzz_main/lib.js',
   '../zzz_main/img/msgr.png', '../zzz_main/img/telephone.png', '../zzz_main/img/sms.png'
 ];
 
-// Install and cache files
-self.addEventListener('install', event => {
-  event.waitUntil(
-    caches.open(CACHE_NAME)
-      .then(cache => cache.addAll(ASSETS))
-      .catch(err => console.log('Cache error:', err))
+
+self.addEventListener("install", e => {
+  e.waitUntil(
+    caches.open(CACHE_NAME).then(cache =>
+      Promise.allSettled(ASSETS.map(url =>
+        cache.add(url).catch(err => console.warn("⚠️ Could not cache:", url, err))
+      ))
+    ).then(() => self.skipWaiting())
   );
 });
 
-// Remove old caches
-self.addEventListener('activate', event => {
-  event.waitUntil(
-    caches.keys().then(keys => 
-      Promise.all(
-        keys.filter(key => key !== CACHE_NAME).map(key => caches.delete(key))
-      )
-    )
+self.addEventListener("activate", e => {
+  e.waitUntil(
+    caches.keys().then(keys =>
+      Promise.all(keys.filter(k => k !== CACHE_NAME).map(k => caches.delete(k)))
+    ).then(() => clients.claim())
   );
 });
 
-// Serve from cache or network
-self.addEventListener('fetch', event => {
-  event.respondWith(
-    caches.match(event.request)
-      .then(cachedResponse => cachedResponse || fetch(event.request))
+self.addEventListener("fetch", e => {
+  if (e.request.method !== "GET") return;
+  e.respondWith(
+    caches.match(e.request).then(cached => cached || fetch(e.request).catch(() => new Response("", { status: 408 })))
   );
 });
