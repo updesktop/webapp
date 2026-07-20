@@ -2,12 +2,13 @@ const CACHE_NAME = 'jwebapps-v22';
 const ASSETS = [
   './',
   '.index.html',
-  '../zzz_main/app.js','../zzz_main/lib.js',
   './site.webmanifest',
   './enadsys.json',
   './logo.png',
   './qrcode.png',
-  './mainpic.png'
+  './mainpic.png',
+  '../zzz_main/app.js','../zzz_main/lib.js',
+  '../zzz_main/img/msgr.png', '../zzz_main/img/telephone.png', '../zzz_main/img/sms.png'
 ];
 
 // Install and cache files
