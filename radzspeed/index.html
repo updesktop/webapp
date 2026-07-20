@@ -37,6 +37,7 @@
       var CURR_MESSENGER = '';
       var CURR_TELNO='';
       var CURR_COLOR=''; var CURR_BGCOLOR='';
+      var JBE_ONLINE=true;
       //var data=[];
       //const data=fetchData('./enadsys.json');
       
@@ -436,6 +437,33 @@
         .footer-col ul li a:hover { color: var(--accent); }
         .copyright { padding-top: 1rem; border-top: 1px solid #444; color: #777; font-size: 0.9rem; text-align: center;}
 
+        #snackbar {
+        visibility: hidden;
+        min-width: 250px;
+        margin-left: -125px;
+        background-color: #333;
+        color: #fff;
+        text-align: center;
+        border-radius: 20px;
+        padding: 16px;
+        position: fixed;
+        z-index: 1000;
+        left: 50%;
+        bottom: 100px;
+        font-size: 17px;
+
+        width:80%;
+        left:10%; right:10%;
+        margin:0 auto;
+        height:auto; 
+        }
+
+        #snackbar.show {
+        visibility: visible;
+        -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+        animation: fadein 0.5s, fadeout 0.5s 2.5s;
+        }
+
         /* Outer container */
         .outer {
           /* Enable Flexbox */
@@ -464,7 +492,7 @@
     </style>
 </head>
 <body>
-
+<div id="snackbar"></div> 
 <!-- Floating Contact Buttons -->
 <div class="floating-buttons">
     <a id="messengerLink" target="_blank" rel="noopener noreferrer" class="float-btn float-messenger" title="Chat with us on Messenger"><img src="../zzz_main/img/msgr.png" style="height:100%;"/></a>
@@ -717,6 +745,8 @@ function renderProducts(products) {
 }
 
 function inquireTire(name, size) {
+    snackBar(JBE_ONLINE);
+    if(!JBE_ONLINE){ snackBar('OFFLINE'); return; }
     const msg = encodeURIComponent(
         `Hello ${CURR_CLIENTNAME}! I want to inquire about:
         - Tire: ${name}

@@ -1,6 +1,13 @@
 console.log('Jeffrey in the House...');
 function start_app(){
+  //getConnectionStatus().then(status => alert(status),alert(9) );
+  getConnectionStatus().then(status => show_stat(status) );
   const data=fetchData('./enadsys.json');
+}
+
+function show_stat(status){
+  JBE_ONLINE=status;
+  console.log('JBE_ONLINE',JBE_ONLINE);
 }
 
 async function fetchData(vfile){
