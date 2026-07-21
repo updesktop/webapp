@@ -1,23 +1,3 @@
-async function xxxgetConnectionStatus() {
-  if (!navigator.onLine) return false;
-
-  try {
-    const controller = new AbortController();
-    const timeout = setTimeout(() => controller.abort(), 3000);
-
-    const res = await fetch("/favicon.ico", {
-      method: "HEAD",
-      cache: "no-store",
-      signal: controller.signal
-    });
-
-    clearTimeout(timeout);
-    return res.ok ? true : false;
-  } catch {
-    return false;
-  }
-}
-
 /**
  * Simple & reliable check: returns "online" or "offline"
  */

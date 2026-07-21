@@ -102,8 +102,8 @@ function callText(m){
   callTextGO(m,CURR_TELNO);
 }
 
-function callTextGO(m,celno){  
-  //alert(m+' vs '+celno);  
+function callTextGO(m,cel){  
+  let celno=cel.replace(/\s/g, "");
   if(celno.substring(0,1)=='0'){
     celno='+63'+celno.substring(1);
   }
