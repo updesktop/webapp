@@ -13,7 +13,8 @@ const ASSETS = [
   './favicon/favicon-96x96.png',
   './favicon/favicon-192x192.png',
   '../zzz_main/app.js','../zzz_main/lib.js',
-  '../zzz_main/img/msgr.png', '../zzz_main/img/telephone.png', '../zzz_main/img/sms.png'
+  '../zzz_main/img/msgr.png', '../zzz_main/img/telephone.png', 
+  '../zzz_main/img/sms.png', '../zzz_main/img/offline.png'
 ];
 
 
