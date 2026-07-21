@@ -9,8 +9,9 @@ function start_app(){
 }
 
 function show_stat(status){
-  console.log('JBE_ONLINE',status);
   JBE_ONLINE=status;
+  JBE_ONLINE=true;
+  console.log('JBE_ONLINE',status);  
   if(JBE_ONLINE){ document.getElementById('div_msgr').src='../zzz_main/img/msgr.png'; }
   
 }

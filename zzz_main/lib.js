@@ -22,7 +22,7 @@ async function xxxgetConnectionStatus() {
  * Simple & reliable check: returns "online" or "offline"
  */
 async function getConnectionStatus() {
-  if (!navigator.onLine) return "offline";
+  if (!navigator.onLine) return false;
   try {
     const c = new AbortController(), t = setTimeout(() => c.abort(), 3000);
     await fetch("https://www.google.com/favicon.ico", {
