@@ -466,36 +466,38 @@
 
         /* Outer container */
         .outer {
-          /* Enable Flexbox */
-          display: flex;
-          justify-content: center;   /* Horizontal center */
-          align-items: center;       /* Vertical center */
+        /* Enable Flexbox */
+        display: flex;
+        justify-content: center;   /* Horizontal center */
+        align-items: center;       /* Vertical center */
 
-          /* Define size so vertical centering works */
-          width: 100%;
-          height: 350px;
-          border: 2px solid #333;
-          background: #f5f5f5; 
+        /* Define size so vertical centering works */
+        width: 100%;
+        height: 350px;
+        border: 2px solid #333;
+        background: #f5f5f5; 
         }
 
         /* Inner div to be centered */
         .inner {
-          padding: 20px;
-          background: white;
-          border: 1px solid #999;
+        padding: 20px;
+        background: white;
+        border: 1px solid #999;
         }
 
         @media (max-width: 992px) {
             .products-layout, .two-col, .contact-container { grid-template-columns: 1fr; }
             .filter-sidebar { position: static; }
         }
+    
     </style>
 </head>
 <body>
 <div id="snackbar"></div> 
 <!-- Floating Contact Buttons -->
 <div class="floating-buttons">
-    <a id="messengerLink" target="_blank" rel="noopener noreferrer" class="float-btn float-messenger" title="Chat with us on Messenger"><img src="../zzz_main/img/msgr.png" style="height:100%;"/></a>
+    <!--a id="messengerLink" target="_blank" rel="noopener noreferrer" class="float-btn float-messenger" title="Chat with us on Messenger"><img src="../zzz_main/img/msgr.png" style="height:100%;"/></a-->
+    <a href="javascript:jmessenger(2)"  class="float-btn float-messenger" title="Chat with us on Messenger"><img id="div_msgr" src="../zzz_main/img/offline.png" style="height:100%;"/></a>
     <a href="javascript:callText('call')" class="float-btn float-call" title="Call Us"><img src="../zzz_main/img/telephone.png" style="height:100%;"/></a>
     <a href="javascript:callText('text')" class="float-btn float-email" title="Send SMS"><img src="../zzz_main/img/sms.png" style="height:100%;"/></a>
 </div>
@@ -526,7 +528,8 @@
     <h1>Premium Tires for Every Vehicle</h1>
     <p>Top-quality tires for cars, SUVs, trucks, and heavy equipment. Best prices in Bacolod & Negros Occidental — fast delivery available!</p>
     <a href="#products" class="btn">View All Tires</a>
-    <a href="https://m.me/radzspeed.bacolod?text=Hello%20Negros%20Tire%20Supply!%20I%20need%20tires%20for%20my%20vehicle." target="_blank" class="btn btn-messenger">💬 Chat on Messenger</a>
+    <!--a href="https://m.me/radzspeed.bacolod?text=Hello%20Negros%20Tire%20Supply!%20I%20need%20tires%20for%20my%20vehicle." target="_blank" class="btn btn-messenger">💬 Chat on Messenger</a-->
+    <a href="javascript:jmessenger(1)" class="btn btn-messenger">💬 Chat on Messenger</a>
 </section>
 
 <!-- Categories -->
@@ -604,7 +607,7 @@
 <section id="about">
     <div class="two-col">
         <div>
-            <h2 class="section-title" style="text-align: left;">About Our Business</h2>
+            <h2 class="section-title">About Our Business</h2>
             <p><span id="about_clientname">Negros Tire Supply</span> has been serving Bacolod City and Negros Occidental since 2010. We supply original and trusted tire brands at competitive wholesale and retail prices.</p>
             <p>We stock all major brands and offer tire fitting, balancing, and delivery services across Western Visayas.</p>
         </div>
@@ -745,7 +748,6 @@ function renderProducts(products) {
 }
 
 function inquireTire(name, size) {
-    snackBar(JBE_ONLINE);
     if(!JBE_ONLINE){ snackBar('OFFLINE'); return; }
     const msg = encodeURIComponent(
         `Hello ${CURR_CLIENTNAME}! I want to inquire about:

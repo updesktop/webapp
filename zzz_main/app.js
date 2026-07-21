@@ -1,13 +1,16 @@
 console.log('Jeffrey in the House...');
 function start_app(){
+  JBE_ONLINE=true;
   //getConnectionStatus().then(status => alert(status),alert(9) );
   getConnectionStatus().then(status => show_stat(status) );
   const data=fetchData('./enadsys.json');
 }
 
 function show_stat(status){
+  console.log('JBE_ONLINE',status);
   JBE_ONLINE=status;
-  console.log('JBE_ONLINE',JBE_ONLINE);
+  if(JBE_ONLINE){ document.getElementById('div_msgr').src='../zzz_main/img/msgr.png'; }
+  
 }
 
 async function fetchData(vfile){
@@ -20,7 +23,7 @@ async function fetchData(vfile){
     
     const data = await response.json();
     CURR_CLIENTNAME=data.clientname;
-    //alert(CURR_CLIENTNAME);
+    //snackBar(JBE_ONLINE);
     CURR_SITE=data.site;
     CURR_TELNO=data.telno;
     CURR_COLOR=data.app_color;
@@ -34,6 +37,8 @@ async function fetchData(vfile){
     biz_tel.textContent=data.telephones;
     biz_email.textContent=data.email;
 
+    
+
     // Coordinate variables
     const latitude = data.coordinates[0];
     const longitude = data.coordinates[1];
@@ -44,9 +49,9 @@ async function fetchData(vfile){
 
     CURR_MESSENGER=data.messenger;
     // Build the link URL
-    const linkUrl = `https://m.me/${CURR_MESSENGER}`;
+    //const linkUrl = `https://m.me/${CURR_MESSENGER}`;
     // Assign to href
-    document.getElementById("messengerLink").href = linkUrl;
+    //document.getElementById("messengerLink").href = linkUrl;
     document.documentElement.style.setProperty('--accent', data.app_color); // changes to red
         
     /*
@@ -59,9 +64,6 @@ async function fetchData(vfile){
     */
 
     document.getElementById('div_qrcode').innerHTML='<img src="qrcode.png" style="width:246px;height:246px;" />';
-
-
-
     return data;
   } catch (error) {
     console.error('Error fetching JSON:', error);
@@ -113,4 +115,16 @@ function callTextGO(m,celno){
   }  
   window.location.href=vhref;
   //window.location.href="sms://+639489523337?body=I%27m%20interested%20in%20your%20product.%20Please%20contact%20me."
+}
+
+function jmessenger(mode){
+  console.log(JBE_ONLINE);
+  if(!JBE_ONLINE){ snackBar('OFFLINE'); return; }
+  let vhref='';
+  if(mode==1){
+    vhref='https://m.me/radzspeed.bacolod?text=Hello%20Negros%20Tire%20Supply!%20I%20need%20tires%20for%20my%20vehicle.';
+  }else if(mode==2){
+    vhref = `https://m.me/${CURR_MESSENGER}`;
+  }
+  window.open(vhref, '_blank', 'noopener,noreferrer');
 }
