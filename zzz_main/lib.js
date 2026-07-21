@@ -1,4 +1,4 @@
-async function getConnectionStatus() {
+async function xxxgetConnectionStatus() {
   if (!navigator.onLine) return false;
 
   try {
@@ -13,6 +13,23 @@ async function getConnectionStatus() {
 
     clearTimeout(timeout);
     return res.ok ? true : false;
+  } catch {
+    return false;
+  }
+}
+
+/**
+ * Simple & reliable check: returns "online" or "offline"
+ */
+async function getConnectionStatus() {
+  if (!navigator.onLine) return "offline";
+  try {
+    const c = new AbortController(), t = setTimeout(() => c.abort(), 3000);
+    await fetch("https://www.google.com/favicon.ico", {
+      method: "HEAD", cache: "no-store", mode: "no-cors", signal: c.signal
+    });
+    clearTimeout(t);
+    return true;
   } catch {
     return false;
   }

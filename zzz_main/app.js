@@ -3,6 +3,8 @@ function start_app(){
   JBE_ONLINE=true;
   //getConnectionStatus().then(status => alert(status),alert(9) );
   getConnectionStatus().then(status => show_stat(status) );
+  //getConnectionStatus().then(status => console.log("Status:", status));
+
   const data=fetchData('./enadsys.json');
 }
 
