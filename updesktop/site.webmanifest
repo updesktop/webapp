@@ -9,7 +9,7 @@
     "orientation": "portrait-primary",
     "icons": [
         {
-            "src": "favicon/apple-icon-152x152.png",
+            "src": "favicon/android-chrome-512x512.png",
             "sizes": "512x512",
             "type": "image/png",
             "purpose": "any maskable"
