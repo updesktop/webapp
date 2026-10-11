@@ -1,0 +1,12 @@
+[
+  {"id":1,"name":"Sintra","img":"item/sintra.jpg","type":"photo","brand":"","price":150,"txprice":"each A4 size","inStock":true,"isNew":false},
+  {"id":2,"name":"Photo Book","img":"item/photobook.jpg","type":"photo","brand":"","price":450,"txprice":"6x8 size","inStock":true,"isNew":false},
+  {"id":3,"name":"PVC ID","img":"item/pvc.jpg","type":"digital","brand":"","price":150,"txprice":"each","inStock":true,"isNew":true},
+  {"id":4,"name":"T-shirt Heatpress","img":"item/tshirt.jpg","type":"digital","brand":"","price":30,"txprice":"minimum per press","inStock":true,"isNew":false},
+  {"id":5,"name":"Mugs","img":"item/mugs.jpg","type":"digital","brand":"Dunlop","price":150,"txprice":"each","inStock":true,"isNew":false},
+  {"id":6,"name":"Tumbler","img":"item/tumbler.jpg","type":"digital","brand":"","price":100,"txprice":"each","inStock":true,"isNew":false},
+  {"id":7,"name":"Invitations","img":"item/inv.jpg","type":"digital","brand":"","price":50,"txprice":"each","inStock":false,"isNew":true},
+  {"id":8,"name":"Poster","img":"item/poster.jpg","type":"digital","brand":"","price":50,"txprice":"each","inStock":true,"isNew":false},
+  {"id":9,"name":"Sticker","img":"item/sticker.jpg","type":"giveaways","brand":"","price":120,"txprice":"Performance","inStock":true,"isNew":true},
+  {"id":10,"name":"Tarpaulin","img":"item/tarp.jpg","type":"software","brand":"","price":30,"txprice":"/sq. foot free layout","inStock":true,"isNew":false}
+]
