@@ -797,6 +797,7 @@ function applyFilters() {
         return matchQ && matchType && matchBrand && matchPrice;
     });
 
+    /*
     // Fixed: Use else-if to prevent multiple sorts
     if (sort === 'price-asc') {
         filtered.sort((a, b) => a.price - b.price);
@@ -805,7 +806,7 @@ function applyFilters() {
     } else if (sort === 'name') {
         filtered.sort((a, b) => a.name.localeCompare(b.name));
     }
-    
+    */
     renderProducts(filtered);
 }
 
