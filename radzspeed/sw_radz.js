@@ -1,7 +1,7 @@
 const CACHE_NAME = 'jwebapps-v21';
 const ASSETS = [
   './',
-  '.index.html',
+  './index.html',
   './site.webmanifest',
   './enadsys.json',
   './logo.png',
