@@ -2,7 +2,7 @@
     "name": "UPDESKTOP Digital",
     "short_name": "UPDESKTOP Dig",
     "description": "Your graphics company in Bacolod City",
-    "start_url": ".",
+    "start_url": "./index.html",
     "display": "standalone",
     "background_color": "#f5f5f5",
     "theme_color": "gold",
